@@ -1,0 +1,32 @@
+{
+  "name": "food-hunt",
+  "version": "1.0.0",
+  "description": "Food ordering app using react",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ridwanSyed03/FoodHunt.git"
+  },
+  "keywords": [],
+  "author": "Syed Ridwan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ridwanSyed03/FoodHunt/issues"
+  },
+  "homepage": "https://github.com/ridwanSyed03/FoodHunt#readme",
+  "devDependencies": {
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "browserslist": [
+    "last 3 versions"
+  ]
+}
