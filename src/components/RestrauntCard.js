@@ -7,7 +7,6 @@ const styleCard ={
 
 const RestrauntCard = (props) =>{
     const {resData}=props;
-    console.log(props);
     const{cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla:{deliveryTime}}=resData?.card?.card?.info;
     return(
         <div className="res-card" style={styleCard}>

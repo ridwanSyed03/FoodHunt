@@ -1,18 +1,48 @@
 import RestrauntCard from "./RestrauntCard";
-import resList from "../utils/mockData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () =>{
-    const [listOfRestraunts, setListOfRestraunts]= useState(resList);
-    return(
+    const[listOfRestraunts, setListOfRestraunts]= useState([]);
+    const[searchText, setSearchText]= useState("");
+    const[filteredList, setFilteredList]= useState([]);
+
+    useEffect(()=>{
+        fetchData();
+    },[]);
+
+    const fetchData= async()=>{
+        const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=14.4673154&lng=78.8242089&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null");
+        const json=await data.json();
+
+        setListOfRestraunts(json?.data?.cards.slice(3));
+        setFilteredList(json?.data?.cards.slice(3));
+    }
+
+
+    const handleChange=(event)=>{
+        setSearchText(event.target.value);
+    }
+
+    return listOfRestraunts.length===0 ? <Shimmer/> :(
         <div className="body">
+            <div className="filter">
+            <div className="Search-bar">
+                <input value={searchText} onChange={handleChange} className="search-box" />
+                <button onClick={()=>{
+                    const filteredRestraunt=filteredList.filter((res)=> res.card.card.info.name.toLowerCase().includes(searchText.toLowerCase()));
+
+                    setListOfRestraunts(filteredRestraunt);
+                }}>Search</button>
+            </div>
             <div className="filer-btn">
                <button onClick={()=>{
-                    let filteredList=resList.filter((resData)=>resData?.card?.card?.info?.avgRating>4.0);
+                    let filteredList=listOfRestraunts.filter((resData)=>resData?.card?.card?.info?.avgRating>4.0);
                     setListOfRestraunts(filteredList);
                 }} >
                     Top Rated Restraunts
                </button>
+            </div>
             </div>
             <div className="res-container">
                 {
