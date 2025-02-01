@@ -2,11 +2,15 @@ import RestrauntCard from "./RestrauntCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () =>{
     const[listOfRestraunts, setListOfRestraunts]= useState([]);
     const[searchText, setSearchText]= useState("");
     const[filteredList, setFilteredList]= useState([]);
+    const onlineStatus =useOnlineStatus();
+
+    
 
     useEffect(()=>{
         fetchData();
@@ -20,6 +24,7 @@ const Body = () =>{
         setFilteredList(json?.data?.cards.slice(3));
     }
 
+    if(!onlineStatus) return <h1>Look's like you're offline!! pls check your internet connection.</h1>
 
     const handleChange=(event)=>{
         setSearchText(event.target.value);
