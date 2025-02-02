@@ -9,14 +9,14 @@ const RestrauntCard = (props) =>{
     const {resData}=props;
     const{cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla:{deliveryTime}}=resData?.card?.card?.info;
     return(
-        <div className="res-card" style={styleCard}>
+        <div className="m-2 p-2 w-[236px] h-97 rounded-lg bg-gray-100  hover:bg-gray-200">
             <img 
-            className="res-logo"
+            className="rounded-lg h-48 w-56"
             alt="res-logo"
             src={CON_URL+cloudinaryImageId}/>
-            <h3>{name}</h3>
+            <h3 className="font-bold text-lg">{name}</h3>
             <h4>{cuisines.join(", ")}</h4>
-            <h4>{avgRating} Stars</h4>
+            <h4 >{avgRating}⭐</h4>
             <h4>{costForTwo}</h4>
             <h4>{deliveryTime} minutes</h4>
         </div>

@@ -32,25 +32,28 @@ const Body = () =>{
 
     return listOfRestraunts.length===0 ? <Shimmer/> :(
         <div className="body">
-            <div className="filter">
-            <div className="Search-bar">
-                <input value={searchText} onChange={handleChange} className="search-box" />
-                <button onClick={()=>{
+            <div className="filter flex items-center">
+                <div className="search m-2 p-2">
+                <input value={searchText} onChange={handleChange} className="border border-solid border-black rounded-lg" />
+                <button className="px-4 py-1 m-4 bg-gray-100 rounded-lg cursor-pointer"
+                onClick={()=>{
                     const filteredRestraunt=filteredList.filter((res)=> res.card.card.info.name.toLowerCase().includes(searchText.toLowerCase()));
 
                     setListOfRestraunts(filteredRestraunt);
                 }}>Search</button>
-            </div>
-            <div className="filer-btn">
-               <button onClick={()=>{
+                </div>
+
+                <div>
+                    <button className="px-4 py-1 bg-gray-100 rounded-lg cursor-pointer"
+                    onClick={()=>{
                     let filteredList=listOfRestraunts.filter((resData)=>resData?.card?.card?.info?.avgRating>4.0);
                     setListOfRestraunts(filteredList);
                 }} >
                     Top Rated Restraunts
                </button>
+                </div>
             </div>
-            </div>
-            <div className="res-container">
+            <div className="flex flex-wrap">
                 {
                     listOfRestraunts.map((restraunt)=>(
                     <Link to={"/ResMenu/"+restraunt?.card?.card?.info?.id} key={restraunt?.card?.card?.info?.id} ><RestrauntCard resData={restraunt} /></Link>))
