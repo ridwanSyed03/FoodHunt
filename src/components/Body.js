@@ -1,4 +1,4 @@
-import RestrauntCard from "./RestrauntCard";
+import RestrauntCard, {withPromotedLabel} from "./RestrauntCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ const Body = () =>{
     const[filteredList, setFilteredList]= useState([]);
     const onlineStatus =useOnlineStatus();
 
-    
+    const RestaurantCardPromoted=withPromotedLabel(RestrauntCard);
 
     useEffect(()=>{
         fetchData();
@@ -56,7 +56,10 @@ const Body = () =>{
             <div className="flex flex-wrap">
                 {
                     listOfRestraunts.map((restraunt)=>(
-                    <Link to={"/ResMenu/"+restraunt?.card?.card?.info?.id} key={restraunt?.card?.card?.info?.id} ><RestrauntCard resData={restraunt} /></Link>))
+                    <Link to={"/ResMenu/"+restraunt?.card?.card?.info?.id} 
+                        key={restraunt?.card?.card?.info?.id} >
+                        {restraunt?.card?.card?.info?.promoted?(<RestaurantCardPromoted resData={restraunt}/>):(<RestrauntCard resData={restraunt} />)}
+                    </Link>))
                 }
             </div>
         </div>
