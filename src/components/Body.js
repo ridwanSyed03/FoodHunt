@@ -18,7 +18,7 @@ const Body = () =>{
     const[listOfRestraunts, setListOfRestraunts]= useState([]);
     const[searchText, setSearchText]= useState("");
     const[filteredList, setFilteredList]= useState([]);
-    const[url, setUrl]= useState("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null");
+    const[url, setUrl]= useState("https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null");
     const onlineStatus =useOnlineStatus();
 
     const RestaurantCardPromoted=withPromotedLabel(RestrauntCard);
@@ -48,15 +48,15 @@ const Body = () =>{
     return listOfRestraunts.length===0 ? <Shimmer/> :(
         <div className="body">
             <div className="flex my-3 mx-9 p-2 bg-gray-50 shadow-sm">
-                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={Briyani} />
-                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=83637&tags=layout_CCS_Burger&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={Burger} />
-                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=80362&tags=layout_PavBhaji_Contextual&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={Pavbaji} />
-                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=80424&tags=layout_CCS_Dosa&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={Dosa} />
-                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=80463&tags=&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={Noodles} />
-                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=83631&tags=layout_CCS_Pizza&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={Pizza} />
-                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=83669&tags=layout_CCS_Rolls&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={Rolls} />
-                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=83634&tags=layout_CCS_SouthIndian&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={SouthIndian} />
-                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=80477&tags=&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={Parota} />
+                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={Briyani} />
+                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=83637&tags=layout_CCS_Burger&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={Burger} />
+                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=80362&tags=layout_PavBhaji_Contextual&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={Pavbaji} />
+                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=80424&tags=layout_CCS_Dosa&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={Dosa} />
+                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=80463&tags=&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={Noodles} />
+                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=83631&tags=layout_CCS_Pizza&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={Pizza} />
+                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=83669&tags=layout_CCS_Rolls&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={Rolls} />
+                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=83634&tags=layout_CCS_SouthIndian&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={SouthIndian} />
+                <img className="w-32 h-32 cursor-pointer" onClick={()=>handelUrl("https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=80477&tags=&sortBy=&filters=&type=rcv2&offset=0&page_type=null")} src={Parota} />
             </div>
             <div className="filter flex items-center">
                 <div className="search m-2 p-2">
