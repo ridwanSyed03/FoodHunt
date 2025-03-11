@@ -18,7 +18,7 @@ const Body = () =>{
     const[listOfRestraunts, setListOfRestraunts]= useState([]);
     const[searchText, setSearchText]= useState("");
     const[filteredList, setFilteredList]= useState([]);
-    const[url, setUrl]= useState("http://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null");
+    const[url, setUrl]= useState("https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null");
     const onlineStatus =useOnlineStatus();
 
     const RestaurantCardPromoted=withPromotedLabel(RestrauntCard);
