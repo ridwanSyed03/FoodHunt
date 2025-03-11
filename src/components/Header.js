@@ -1,9 +1,10 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
+import {auth, signOut, onAuthStateChanged } from "../utils/firebase"
 
 const Header = () =>{
     const [btnName, setBtnName]= useState("Login");
@@ -12,7 +13,15 @@ const Header = () =>{
     const {loggedInUser}=useContext(UserContext);
 
     const cart=useSelector((store)=>store.cart.items);
-    console.log(cart);
+
+    const [user, setUser] = useState(null);
+    
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+        return () => unsubscribe();
+    }, []);
     
     return(
         <div className="flex justify-between bg-gray-50 sticky top-0 z-1">
@@ -21,7 +30,7 @@ const Header = () =>{
             </div>
             <div className="flex items-center">
                 <ul className="flex p-4 m-4">
-                    <li className="px-4">Online Status:{onlineStatus?"🟢":"🔴"}</li>
+                    <li className="px-4">Online Status:{onlineStatus?"✅":"🔴"}</li>
                     <li className="px-4"><Link to="/">Home</Link></li>
                     <li className="px-4"><Link to="/about">About</Link></li>
                     <li className="px-4"><Link to="/contact">Contact Us</Link></li>
